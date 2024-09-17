@@ -1,0 +1,264 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: #11121a;
+  color: #e6e6ef;
+  line-height: 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  height: 100vh;
+  width: 300px;
+  padding: 5px 15px;
+  background: #11121a;
+  border-right: 1px solid #42434a;
+  text-wrap: nowrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: 0.3s ease-in-out;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-top: 10px;
+}
+
+.sidebar svg {
+  flex-shrink: 0;
+  fill: #e6e6ef;
+}
+
+.head {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.menu-btn {
+  margin-left: auto;
+  padding: 20px;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: -2px;
+}
+
+.menu-btn:hover {
+  background: #222533;
+}
+
+.menu-btn svg {
+  transition: 0.15s ease;
+}
+
+.sidebar.close {
+  width: 70px;
+  padding: 5px;
+}
+
+.rotate svg:last-child {
+  rotate: 180deg;
+}
+
+.sidebar a,
+.drop-btn {
+  font-size: 18px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 20px 15px;
+  border-radius: 10px;
+  color: #e6e6ef;
+}
+
+.drop-btn {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.sidebar li.active a {
+  color: #4070f4;
+}
+
+.sidebar li.active a svg {
+  fill: #4070f4;
+}
+
+.sidebar span {
+  flex-grow: 1;
+}
+
+.sidebar a:hover,
+.drop-btn:hover {
+  background: #222533;
+}
+
+.submenu {
+  display: grid;
+  /*   grid-template-rows: 1fr; */
+  grid-template-rows: 0fr;
+  transition: 0.3s ease-in-out;
+}
+
+.submenu div {
+  overflow: hidden;
+}
+
+.submenu a {
+  padding-left: 20px;
+}
+
+.submenu.show {
+  grid-template-rows: 1fr;
+}
+
+.drop-btn svg {
+  transition: 0.2s ease;
+}
+
+.main {
+  padding: min(30px, 7%);
+}
+
+.main .wrapper {
+  padding-inline: min(50px, 15%);
+  padding-block: 30px;
+}
+
+.main h2,
+p {
+  margin-top: 20px;
+}
+
+.main p {
+  color: #b0b3c1;
+}
+
+@media (max-width: 800px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    top: unset;
+    height: 60px;
+    width: 100%;
+    border-right: none;
+    border-top: 1px solid #42434a;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .sidebar.close {
+    width: 100%;
+    height: 60px;
+  }
+
+  .sidebar ul {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(60px, 1fr));
+    overflow-x: scroll;
+    padding: 0;
+  }
+
+  .sidebar ul li {
+    margin: 0;
+    height: 100%;
+  }
+
+  .sidebar a,
+  .drop-btn {
+    height: 60px;
+    padding: 0;
+    border-radius: 0;
+    justify-content: center;
+  }
+
+  ul li span,
+  ul li:first-child,
+  .drop-btn svg:last-child {
+    display: none;
+  }
+
+  .submenu.show {
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    box-sizing: border-box;
+    height: 60px;
+    width: 100%;
+    background: #222533;
+    border-top: 1px solid #42434a;
+    display: flex;
+    justify-content: center;
+  }
+
+  .submenu.show div {
+    overflow-x: auto;
+  }
+
+  .submenu li {
+    display: inline-flex;
+  }
+
+  .submenu a {
+    box-sizing: border-box;
+    padding: 1em;
+    width: auto;
+    justify-content: center;
+  }
+
+  .main {
+    padding: 20px 10px 60px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .main {
+    padding: 40px 30px;
+  }
+
+  .main .wrapper {
+    padding: 0;
+    padding-bottom: 40px;
+  }
+}
